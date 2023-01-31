@@ -13,3 +13,4 @@ pluginManagement {
     }
 }
 rootProject.name = "todo-with-inaccuracies"
+include("task")
