@@ -9,8 +9,10 @@ import org.junit.jupiter.api.Test
 class TaskDescriptionTest {
     @Test
     fun `empty task description - must throw error`() {
-        TaskDescription.of("").shouldBeLeft().shouldBe(CreateTaskDescriptionError.EmptyString)
-        TaskDescription.of(" ").shouldBeLeft().shouldBe(CreateTaskDescriptionError.EmptyString)
+        val expectedError = CreateTaskDescriptionError.EmptyString
+
+        TaskDescription.of("").shouldBeLeft().shouldBe(expectedError)
+        TaskDescription.of(" ").shouldBeLeft().shouldBe(expectedError)
     }
 
     @Test
@@ -23,8 +25,8 @@ class TaskDescriptionTest {
         val descriptionWithSpacesAtStart = "   Some task description with spaces at start"
         val descriptionWithSpacesAtEnd = "Some task description with spaces at end        "
 
-        val actualDescriptionWithSpacesAtStart = requireNotNull(TaskDescription.of(descriptionWithSpacesAtStart).getOrNull())
-        val actualDescriptionWithSpacesAtEnd = requireNotNull(TaskDescription.of(descriptionWithSpacesAtEnd).getOrNull())
+        val actualDescriptionWithSpacesAtStart = TaskDescription.of(descriptionWithSpacesAtStart).shouldBeRight()
+        val actualDescriptionWithSpacesAtEnd = TaskDescription.of(descriptionWithSpacesAtEnd).shouldBeRight()
 
         assertEquals(descriptionWithSpacesAtStart.trim(), actualDescriptionWithSpacesAtStart.toString())
         assertEquals(descriptionWithSpacesAtEnd.trim(), actualDescriptionWithSpacesAtEnd.toString())
