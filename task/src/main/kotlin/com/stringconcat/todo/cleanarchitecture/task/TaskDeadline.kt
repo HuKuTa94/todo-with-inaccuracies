@@ -3,7 +3,8 @@ package com.stringconcat.todo.cleanarchitecture.task
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 
-data class TaskDeadline internal constructor(
+@JvmInline
+value class TaskDeadline private constructor(
     private val value: LocalDateTime
 ){
     init {
@@ -13,9 +14,9 @@ data class TaskDeadline internal constructor(
     fun toLocalDateTime(): LocalDateTime = value
 
     companion object {
-        fun from(deadline: LocalDateTime) = TaskDeadline(deadline)
+        fun of(deadline: LocalDateTime) = TaskDeadline(deadline)
 
-        fun from(deadline: Long) = TaskDeadline(
+        fun of(deadline: Long) = TaskDeadline(
             LocalDateTime.ofEpochSecond(
                 deadline, 0, ZoneOffset.UTC
             )

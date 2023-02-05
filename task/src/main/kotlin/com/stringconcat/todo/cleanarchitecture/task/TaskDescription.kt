@@ -1,16 +1,15 @@
 package com.stringconcat.todo.cleanarchitecture.task
 
-data class TaskDescription internal constructor(
-    private var value: String
+@JvmInline
+value class TaskDescription private constructor(
+    private val value: String
 ){
-    init {
-        require(value.isNotBlank()) { "Invalid task description" }
-        value = value.trim()
-    }
-
     override fun toString(): String = value
 
     companion object {
-        fun from(description: String) = TaskDescription(description)
+        fun of(description: String): TaskDescription {
+            require(description.isNotBlank()) { "Invalid task description" }
+            return TaskDescription(description.trim())
+        }
     }
 }

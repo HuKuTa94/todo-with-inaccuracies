@@ -9,14 +9,14 @@ class TaskDeadlineTest {
     @Test
     fun `deadline in the past - must throw error`() {
         assertThrows<IllegalArgumentException> {
-            TaskDeadline(LocalDateTime.now().minusNanos(1L))
+            TaskDeadline.of(LocalDateTime.now().minusNanos(1L))
         }
     }
 
     @Test
     fun `deadline in the future - doesn't throw error`() {
         assertDoesNotThrow {
-            TaskDeadline(LocalDateTime.now().plusDays(1L))
+            TaskDeadline.of(LocalDateTime.now().plusDays(1L))
         }
     }
 }

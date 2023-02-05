@@ -8,13 +8,13 @@ import org.junit.jupiter.api.assertThrows
 class TaskDescriptionTest {
     @Test
     fun `empty task description - must throw error`() {
-        assertThrows<IllegalArgumentException> { TaskDescription("") }
-        assertThrows<IllegalArgumentException> { TaskDescription(" ") }
+        assertThrows<IllegalArgumentException> { TaskDescription.of("") }
+        assertThrows<IllegalArgumentException> { TaskDescription.of(" ") }
     }
 
     @Test
     fun `correct task description - doesn't throw error`() {
-        assertDoesNotThrow { TaskDescription("Some task description") }
+        assertDoesNotThrow { TaskDescription.of("Some task description") }
     }
 
     @Test
@@ -22,7 +22,7 @@ class TaskDescriptionTest {
         val descriptionWithSpacesAtStart = "   Some task description with spaces at start"
         val descriptionWithSpacesAtEnd = "Some task description with spaces at end        "
 
-        assertEquals(descriptionWithSpacesAtStart.trim(), TaskDescription(descriptionWithSpacesAtStart).toString())
-        assertEquals(descriptionWithSpacesAtEnd.trim(), TaskDescription(descriptionWithSpacesAtEnd).toString())
+        assertEquals(descriptionWithSpacesAtStart.trim(), TaskDescription.of(descriptionWithSpacesAtStart).toString())
+        assertEquals(descriptionWithSpacesAtEnd.trim(), TaskDescription.of(descriptionWithSpacesAtEnd).toString())
     }
 }
