@@ -15,10 +15,14 @@ value class TaskDeadline private constructor(
     companion object {
         fun of(deadline: Long) = of(LocalDateTime.ofEpochSecond(deadline, 0, ZoneOffset.UTC))
 
-        fun of(deadline: LocalDateTime): Either<IllegalArgumentException, TaskDeadline> =
+        fun of(deadline: LocalDateTime): Either<CreateTaskDeadlineError, TaskDeadline> =
             when {
-                deadline.isBefore(LocalDateTime.now()) -> IllegalArgumentException("Deadline can't be in the past").left()
+                deadline.isBefore(LocalDateTime.now()) -> CreateTaskDeadlineError.OverdueDate.left()
                 else -> TaskDeadline(deadline).right()
             }
     }
+}
+
+sealed class CreateTaskDeadlineError : Throwable() {
+    object OverdueDate : CreateTaskDeadlineError()
 }

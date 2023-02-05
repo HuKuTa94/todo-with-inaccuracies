@@ -11,10 +11,14 @@ value class TaskDescription private constructor(
     override fun toString(): String = value
 
     companion object {
-        fun of(description: String): Either<IllegalArgumentException, TaskDescription> =
+        fun of(description: String): Either<CreateTaskDescriptionError, TaskDescription> =
             when {
-                description.isBlank() -> IllegalArgumentException("Invalid task description").left()
+                description.isBlank() -> CreateTaskDescriptionError.EmptyString.left()
                 else -> TaskDescription(description.trim()).right()
             }
     }
+}
+
+sealed class CreateTaskDescriptionError {
+    object EmptyString : CreateTaskDescriptionError()
 }

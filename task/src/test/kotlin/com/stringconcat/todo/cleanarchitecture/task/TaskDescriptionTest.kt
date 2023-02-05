@@ -2,14 +2,15 @@ package com.stringconcat.todo.cleanarchitecture.task
 
 import io.kotest.assertions.arrow.core.shouldBeLeft
 import io.kotest.assertions.arrow.core.shouldBeRight
+import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 class TaskDescriptionTest {
     @Test
     fun `empty task description - must throw error`() {
-        TaskDescription.of("").shouldBeLeft()
-        TaskDescription.of(" ").shouldBeLeft()
+        TaskDescription.of("").shouldBeLeft().shouldBe(CreateTaskDescriptionError.EmptyString)
+        TaskDescription.of(" ").shouldBeLeft().shouldBe(CreateTaskDescriptionError.EmptyString)
     }
 
     @Test
