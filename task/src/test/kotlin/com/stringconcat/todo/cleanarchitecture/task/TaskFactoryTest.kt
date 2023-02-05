@@ -14,8 +14,8 @@ class TaskFactoryTest {
         val priorityProvider: PriorityProvider = mock()
         val taskFactory = TaskFactory(priorityProvider)
 
-        val expectedTaskDescription = TaskDescription.of("task description")
-        val expectedTaskDeadline = TaskDeadline.of(LocalDateTime.now().plusDays(1L))
+        val expectedTaskDescription = requireNotNull(TaskDescription.of("task description").getOrNull())
+        val expectedTaskDeadline = requireNotNull(TaskDeadline.of(LocalDateTime.now().plusDays(1L)).getOrNull())
         val expectedPriority = Task.Priority.MIDDLE
 
         // when
