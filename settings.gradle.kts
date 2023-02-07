@@ -16,3 +16,4 @@ rootProject.name = "todo-with-inaccuracies"
 include("task")
 include("task:testFixtures")
 findProject(":task:testFixtures")?.name = "testFixtures"
+include("usecase")
