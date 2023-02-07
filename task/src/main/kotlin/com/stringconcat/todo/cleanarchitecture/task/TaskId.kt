@@ -9,6 +9,6 @@ value class TaskId internal constructor(
     fun toUUID() = value
 
     companion object {
-        fun of(id: UUID) = TaskId(id)
+        fun of(id: UUID?) = TaskId(id)
     }
 }

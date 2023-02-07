@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm")
     jacoco
+    `java-test-fixtures`
 }
 
 tasks.test {
@@ -36,4 +37,6 @@ dependencies {
     testImplementation("io.arrow-kt:arrow-core:1.1.5")
     testImplementation("io.kotest:kotest-runner-junit5:5.0.0")
     testImplementation("io.kotest.extensions:kotest-assertions-arrow-jvm:1.1.1")
+
+    testFixturesImplementation("io.arrow-kt:arrow-core:1.1.5")
 }
