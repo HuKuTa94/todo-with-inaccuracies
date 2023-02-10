@@ -9,6 +9,7 @@ fun DependencyHandler.commonDependencies() {
     add("testImplementation", Libs.ArrowKt.core)
     add("testImplementation", Libs.Kotest.arrow)
     add("testImplementation", Libs.Kotest.junit5)
+    add("testImplementation", Libs.ArchUnit.junit5)
     add("testFixturesImplementation", Libs.ArrowKt.core)
 }
 
@@ -33,5 +34,9 @@ object Libs {
 
         private const val arrow_version = "1.1.1"
         const val arrow = "io.kotest.extensions:kotest-assertions-arrow-jvm:$arrow_version"
+    }
+    object ArchUnit {
+        private const val version = "1.0.1"
+        const val junit5 = "com.tngtech.archunit:archunit-junit5:$version"
     }
 }
