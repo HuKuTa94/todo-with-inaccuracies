@@ -1,4 +1,4 @@
-package com.stringconcat.todo.cleanarchitecture.task
+package com.stringconcat.todo.cleanarchitecture.domain.task
 
 class TaskFactory(
     private val priorityProvider: PriorityProvider

@@ -1,8 +1,8 @@
 package com.stringconcat.todo.cleanarchitecture.usecase.scenariuos
 
-import com.stringconcat.todo.cleanarchitecture.task.TaskDeadline
-import com.stringconcat.todo.cleanarchitecture.task.TaskDescription
-import com.stringconcat.todo.cleanarchitecture.task.TaskFactory
+import com.stringconcat.todo.cleanarchitecture.domain.task.TaskDeadline
+import com.stringconcat.todo.cleanarchitecture.domain.task.TaskDescription
+import com.stringconcat.todo.cleanarchitecture.domain.task.TaskFactory
 import com.stringconcat.todo.cleanarchitecture.usecase.CreateNewTaskUsecase
 
 class CreateNewTaskScenario(

@@ -1,4 +1,4 @@
-package com.stringconcat.todo.cleanarchitecture.task
+package com.stringconcat.todo.cleanarchitecture.domain.task
 
 import java.util.UUID
 

@@ -1,8 +1,11 @@
-package com.stringconcat.todo.cleanarchitecture.task
+package com.stringconcat.todo.cleanarchitecture.domain.testfixtures
 
 import arrow.core.Either
+import com.stringconcat.todo.cleanarchitecture.domain.task.*
 import java.time.LocalDateTime
 import java.util.UUID
+
+const val PACKAGE_DOMAIN_TASK = "com.stringconcat.todo.cleanarchitecture.domain.task"
 
 fun taskDescription(): TaskDescription {
     val result = TaskDescription.of("Some valid description of task")

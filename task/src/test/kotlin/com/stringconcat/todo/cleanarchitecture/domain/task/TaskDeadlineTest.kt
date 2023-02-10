@@ -1,4 +1,4 @@
-package com.stringconcat.todo.cleanarchitecture.task
+package com.stringconcat.todo.cleanarchitecture.domain.task
 
 import io.kotest.assertions.arrow.core.shouldBeLeft
 import io.kotest.assertions.arrow.core.shouldBeRight

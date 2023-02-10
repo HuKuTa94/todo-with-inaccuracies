@@ -1,6 +1,8 @@
 package com.stringconcat.todo.cleanarchitecture.usecase.scenariuos
 
-import com.stringconcat.todo.cleanarchitecture.task.*
+import com.stringconcat.todo.cleanarchitecture.domain.testfixtures.taskDeadline
+import com.stringconcat.todo.cleanarchitecture.domain.testfixtures.taskDescription
+import com.stringconcat.todo.cleanarchitecture.domain.testfixtures.taskFactory
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 

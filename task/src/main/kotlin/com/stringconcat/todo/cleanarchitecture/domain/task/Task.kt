@@ -1,4 +1,4 @@
-package com.stringconcat.todo.cleanarchitecture.task
+package com.stringconcat.todo.cleanarchitecture.domain.task
 
 data class Task internal constructor(
     val id: TaskId = TaskId(),
