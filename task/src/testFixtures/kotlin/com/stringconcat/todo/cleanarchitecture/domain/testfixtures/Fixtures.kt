@@ -13,8 +13,10 @@ fun taskDescription(): TaskDescription {
     return result.value
 }
 
-fun taskDeadline(): TaskDeadline {
-    val result = TaskDeadline.of(LocalDateTime.now().plusMonths(1L))
+fun taskDeadline(
+    deadline: LocalDateTime = LocalDateTime.now().plusMonths(1L)
+): TaskDeadline {
+    val result = TaskDeadline.of(deadline)
     check(result is Either.Right<TaskDeadline>)
     return result.value
 }
