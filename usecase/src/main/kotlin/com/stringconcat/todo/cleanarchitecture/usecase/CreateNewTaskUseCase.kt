@@ -4,6 +4,6 @@ import com.stringconcat.todo.cleanarchitecture.domain.task.Task
 import com.stringconcat.todo.cleanarchitecture.domain.task.TaskDeadline
 import com.stringconcat.todo.cleanarchitecture.domain.task.TaskDescription
 
-interface CreateNewTaskUsecase {
+interface CreateNewTaskUseCase {
     fun invoke(description: TaskDescription, deadline: TaskDeadline): Task
 }
