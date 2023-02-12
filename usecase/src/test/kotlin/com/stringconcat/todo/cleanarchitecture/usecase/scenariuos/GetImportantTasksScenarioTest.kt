@@ -9,11 +9,8 @@ import org.junit.jupiter.api.Test
 class GetImportantTasksScenarioTest {
     @Test
     fun `get important tasks - should return list of high priority tasks`() {
-        // given
-        val getImportantTasks = findTasksByPriority()
-
         // when
-        val actualTasks = GetImportantTasksScenario(getImportantTasks).invoke()
+        val actualTasks = GetImportantTasksScenario(findTasksByPriority()).invoke()
 
         // then
         assertTrue(actualTasks.isNotEmpty())
