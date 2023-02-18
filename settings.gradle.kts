@@ -17,3 +17,6 @@ include("task")
 include("task:testFixtures")
 findProject(":task:testFixtures")?.name = "testFixtures"
 include("usecase")
+include("persistence")
+include("persistence:in-memory")
+findProject(":persistence:in-memory")?.name = "in-memory"
