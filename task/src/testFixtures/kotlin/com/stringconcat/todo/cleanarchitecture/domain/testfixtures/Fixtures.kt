@@ -7,8 +7,10 @@ import java.util.UUID
 
 const val PACKAGE_DOMAIN_TASK = "com.stringconcat.todo.cleanarchitecture.domain.task"
 
-fun taskDescription(): TaskDescription {
-    val result = TaskDescription.of("Some valid description of task")
+fun taskDescription(
+    description: String = "Some valid description of task"
+): TaskDescription {
+    val result = TaskDescription.of(description)
     check(result is Either.Right<TaskDescription>)
     return result.value
 }
@@ -23,11 +25,17 @@ fun taskDeadline(
 
 fun taskId(id: UUID? = UUID.randomUUID()) = TaskId.of(id)
 
-fun task() = taskFactory()
+fun task(
+    description: TaskDescription = taskDescription(),
+    deadline: TaskDeadline = taskDeadline(),
+    priority: Task.Priority = Task.Priority.NEED_CALCULATION
+) = taskFactory()
     .createTask(
-        taskDescription(),
-        taskDeadline()
-    )
+        description,
+        deadline
+    ).also {
+        it.changePriority(priority)
+    }
 
 fun taskFactory(
     priorityProvider: PriorityProvider = lowPriorityProvider()
