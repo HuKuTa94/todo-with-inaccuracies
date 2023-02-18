@@ -1,11 +1,11 @@
 package com.stringconcat.todo.cleanarchitecture.usecase.scenariuos
 
-import com.stringconcat.todo.cleanarchitecture.usecase.access.testfixtures.findTasksCloseToDeadline
+import com.stringconcat.todo.cleanarchitecture.usecase.access.testfixtures.findTasksByDeadlineRange
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import java.time.LocalDateTime
 
-class GetCLoseToDeadlineTasksScenarioTest {
+class GetCloseToDeadlineTasksScenarioTest {
     @Test
     fun `get close to deadline tasks - date is future - should return list task that close to deadline`() {
         // given
@@ -31,6 +31,6 @@ class GetCLoseToDeadlineTasksScenarioTest {
     }
 
     companion object {
-        private val findTasksCloseToDeadline = findTasksCloseToDeadline()
+        private val findTasksCloseToDeadline = findTasksByDeadlineRange()
     }
 }

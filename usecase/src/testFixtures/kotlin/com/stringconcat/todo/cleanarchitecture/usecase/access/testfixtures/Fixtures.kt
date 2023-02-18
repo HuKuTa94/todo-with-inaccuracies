@@ -3,7 +3,7 @@ package com.stringconcat.todo.cleanarchitecture.usecase.access.testfixtures
 import com.stringconcat.todo.cleanarchitecture.domain.task.Task
 import com.stringconcat.todo.cleanarchitecture.domain.testfixtures.*
 import com.stringconcat.todo.cleanarchitecture.usecase.access.FindTasksByPriority
-import com.stringconcat.todo.cleanarchitecture.usecase.access.FindTasksCloseToDeadline
+import com.stringconcat.todo.cleanarchitecture.usecase.access.FindTasksByDeadlineRange
 import com.stringconcat.todo.cleanarchitecture.usecase.access.PersistTask
 import java.time.LocalDateTime
 
@@ -33,8 +33,7 @@ fun findTasksByPriority() = object : FindTasksByPriority {
     }
 }
 
-fun findTasksCloseToDeadline() = object : FindTasksCloseToDeadline {
-    val deadlineThreshold = 3L
+fun findTasksByDeadlineRange() = object : FindTasksByDeadlineRange {
     val taskDescription = taskDescription()
 
     val tasks = listOf(
@@ -49,10 +48,8 @@ fun findTasksCloseToDeadline() = object : FindTasksCloseToDeadline {
         highPriorityTaskFactory.createTask(taskDescription, taskDeadline(LocalDateTime.now().plusDays(9))),
     )
 
-    override fun find(deadline: LocalDateTime) = tasks.filter {
-        val fromDate = deadline.minusDays(deadlineThreshold)
+    override fun find(from: LocalDateTime, to: LocalDateTime): List<Task> = tasks.filter {
         val taskDeadline = it.deadline.toLocalDateTime()
-
-        taskDeadline.isAfter(fromDate) && taskDeadline.isBefore(deadline)
+        taskDeadline.isAfter(from) && taskDeadline.isBefore(to)
     }
 }
