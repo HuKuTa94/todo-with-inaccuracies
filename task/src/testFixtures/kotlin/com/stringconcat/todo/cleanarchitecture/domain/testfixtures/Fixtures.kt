@@ -23,7 +23,15 @@ fun taskDeadline(
     return result.value
 }
 
-fun taskId(id: UUID? = UUID.randomUUID()) = TaskId.of(id)
+fun taskDeadline(
+    deadline: Long
+): TaskDeadline {
+    val result = TaskDeadline.of(deadline)
+    check(result is Either.Right<TaskDeadline>)
+    return result.value
+}
+
+fun taskId(id: UUID = UUID.randomUUID()) = TaskId.of(id)
 
 fun task(
     description: TaskDescription = taskDescription(),
