@@ -39,4 +39,14 @@ object Libs {
         private const val version = "1.0.1"
         const val junit5 = "com.tngtech.archunit:archunit-junit5:$version"
     }
+    object SpringBoot {
+        private const val version = "3.0.2"
+        const val starter_test = "org.springframework.boot:spring-boot-starter-test:$version"
+        const val starter_webflux = "org.springframework.boot:spring-boot-starter-webflux:$version"
+        const val starter_data_rest = "org.springframework.boot:spring-boot-starter-data-rest:$version"
+    }
+    object Jackson {
+        private const val version = "2.13.4"
+        const val module_kotlin = "com.fasterxml.jackson.module:jackson-module-kotlin:$version"
+    }
 }

@@ -21,3 +21,4 @@ include("persistence")
 include("persistence:in-memory")
 findProject(":persistence:in-memory")?.name = "in-memory"
 include("neural-network")
+include("rest")
