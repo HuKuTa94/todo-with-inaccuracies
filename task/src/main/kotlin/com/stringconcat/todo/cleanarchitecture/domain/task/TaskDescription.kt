@@ -19,6 +19,8 @@ value class TaskDescription private constructor(
     }
 }
 
-sealed class CreateTaskDescriptionError {
-    object EmptyString : CreateTaskDescriptionError()
+sealed class CreateTaskDescriptionError : BusinessError {
+    object EmptyString : CreateTaskDescriptionError() {
+        override val errorMessage = "Task description can not be empty!"
+    }
 }

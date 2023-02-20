@@ -23,6 +23,8 @@ value class TaskDeadline private constructor(
     }
 }
 
-sealed class CreateTaskDeadlineError : Throwable() {
-    object OverdueDate : CreateTaskDeadlineError()
+sealed class CreateTaskDeadlineError : BusinessError {
+    object OverdueDate : CreateTaskDeadlineError() {
+        override val errorMessage = "Deadline can not be in the past!"
+    }
 }
